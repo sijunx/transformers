@@ -31,6 +31,7 @@ RUN python3 -m pip uninstall -y torch torchvision torchaudio tensorflow jax flax
 RUN python3 ./transformers/utils/past_ci_versions.py --framework $FRAMEWORK --version $VERSION
 
 # Install the target framework
+RUN echo "INSTALL_CMD = $INSTALL_CMD"
 RUN $INSTALL_CMD
 
 # Use installed torch version for `torch-scatter` to avid to deal with PYTORCH='pre'.
