@@ -8,14 +8,14 @@ on:
 jobs:
   run_past_ci_torch_19:
     name: torch-1.9
-    uses: ./github/workflows/self-past.yml
+    uses: ./.github/workflows/self-past.yml
     with:
       framework: torch
       version: 1.9
 
   run_past_ci_torch_18:
     name: torch-1.8
-    uses: ./github/workflows/self-past.yml
+    uses: ./.github/workflows/self-past.yml
     with:
       framework: torch
       version: 1.8
