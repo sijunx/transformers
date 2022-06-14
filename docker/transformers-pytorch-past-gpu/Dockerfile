@@ -11,7 +11,7 @@ RUN apt install -y git libsndfile1-dev tesseract-ocr espeak-ng python3 python3-p
 RUN git lfs install
 RUN python3 -m pip install --no-cache-dir --upgrade pip
 
-ARG REF=main
+ARG REF=past-ci
 RUN git clone https://github.com/huggingface/transformers && cd transformers && git checkout $REF
 RUN python3 -m pip install --no-cache-dir -e ./transformers[dev,onnxruntime]
 
