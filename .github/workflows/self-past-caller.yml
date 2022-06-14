@@ -12,6 +12,7 @@ jobs:
     with:
       framework: torch
       version: "1.9"
+    secrets: inherit
 
   run_past_ci_torch_18:
     name: torch-1.8
@@ -19,3 +20,4 @@ jobs:
     with:
       framework: torch
       version: "1.8"
+    secrets: inherit
