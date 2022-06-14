@@ -27,11 +27,11 @@ ARG VERSION=''
 RUN python3 -m pip uninstall -y torch torchvision torchaudio tensorflow jax flax
 
 # Get the libraries and their versions to install, and write installation command to `~/.profile`.
-# `INSTALL_COMMAND`, and `CUDA`
-RUN python3 -m ./transformers/utils/past_ci_versions.py --framework $FRAMEWORK --version $VERSION
+# `INSTALL_CMD`, and `CUDA`
+RUN python3 ./transformers/utils/past_ci_versions.py --framework $FRAMEWORK --version $VERSION
 
 # Install the target framework
-RUN INSTALL_COMMAND
+RUN INSTALL_CMD
 
 # Use installed torch version for `torch-scatter` to avid to deal with PYTORCH='pre'.
 # If torch is nightly version, the link is likely to be invalid, but the installation falls back to the latest torch-scatter
