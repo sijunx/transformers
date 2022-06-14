@@ -6,7 +6,7 @@ on:
       - past-ci-*
 
 jobs:
-  run_past_ci_torch_19:
+  run_past_ci_torch_192:
     name: torch-1.9
     uses: ./.github/workflows/self-past.yml
     with:
