@@ -16,6 +16,7 @@ jobs:
 
   run_past_ci_torch_18:
     name: torch-1.8
+    needs: [run_past_ci_torch_19]
     uses: ./.github/workflows/self-past.yml
     with:
       framework: torch
