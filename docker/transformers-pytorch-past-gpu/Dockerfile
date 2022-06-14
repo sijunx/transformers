@@ -20,8 +20,8 @@ RUN python3 -m pip install --no-cache-dir -e ./transformers[dev,onnxruntime]
 
 ARG FRAMEWORK=''
 ARG VERSION=''
-# (not always a valid torch version)
-ARG INTEL_TORCH_EXT='1.11.0'
+### # (not always a valid torch version)
+### ARG INTEL_TORCH_EXT='1.11.0'
 
 # Remove all frameworks
 RUN python3 -m pip uninstall -y torch torchvision torchaudio tensorflow jax flax
@@ -36,12 +36,12 @@ RUN INSTALL_COMMAND
 # Use installed torch version for `torch-scatter` to avid to deal with PYTORCH='pre'.
 # If torch is nightly version, the link is likely to be invalid, but the installation falls back to the latest torch-scatter
 RUN python3 -m pip install --no-cache-dir torch-scatter -f https://data.pyg.org/whl/torch-$(python3 -c "from torch import version; print(version.__version__.split('+')[0])")+$CUDA.html
-RUN python3 -m pip install --no-cache-dir intel_extension_for_pytorch==$INTEL_TORCH_EXT+cpu -f https://software.intel.com/ipex-whl-stable
+### RUN python3 -m pip install --no-cache-dir intel_extension_for_pytorch==$INTEL_TORCH_EXT+cpu -f https://software.intel.com/ipex-whl-stable
 
-RUN python3 -m pip install --no-cache-dir git+https://github.com/facebookresearch/detectron2.git pytesseract https://github.com/kpu/kenlm/archive/master.zip
+### RUN python3 -m pip install --no-cache-dir git+https://github.com/facebookresearch/detectron2.git pytesseract https://github.com/kpu/kenlm/archive/master.zip
 RUN python3 -m pip install -U "itsdangerous<2.1.0"
 
-RUN python3 -m pip install --no-cache-dir git+https://github.com/huggingface/accelerate@main#egg=accelerate
+### RUN python3 -m pip install --no-cache-dir git+https://github.com/huggingface/accelerate@main#egg=accelerate
 
 # When installing in editable mode, `transformers` is not recognized as a package.
 # this line must be added in order for python to be aware of transformers.
