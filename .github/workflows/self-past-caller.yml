@@ -3,32 +3,42 @@ name: Self-hosted runner (past-caller)
 on:
   push:
     branches:
-      - past-ci-none
+      - past-ci
 
 jobs:
+  run_past_ci_pytorch_1-10:
+    name: PyTorch 1.10
+    if: always()
+    uses: ./.github/workflows/self-past.yml
+    with:
+      framework: pytorch
+      version: "1.10"
+    secrets: inherit
+
   run_past_ci_pytorch_1-9:
     name: PyTorch 1.9
     if: always()
+    needs: [run_past_ci_pytorch_1-10]
     uses: ./.github/workflows/self-past.yml
     with:
       framework: pytorch
       version: "1.9"
     secrets: inherit
 
-  run_past_ci_pytorch_1-8:
-    name: PyTorch 1.8
-    if: always()
-    needs: [run_past_ci_pytorch_1-9]
-    uses: ./.github/workflows/self-past.yml
-    with:
-      framework: pytorch
-      version: "1.8"
-    secrets: inherit
+#  run_past_ci_pytorch_1-8:
+#    name: PyTorch 1.8
+#    if: always()
+#    needs: [run_past_ci_pytorch_1-9]
+#    uses: ./.github/workflows/self-past.yml
+#    with:
+#      framework: pytorch
+#      version: "1.8"
+#    secrets: inherit
 
   run_past_ci_tensorflow_2-8:
     name: TensorFlow 2.8
     if: always()
-    needs: [run_past_ci_pytorch_1-8]
+    needs: [run_past_ci_pytorch_1-9]
     uses: ./.github/workflows/self-past.yml
     with:
       framework: tensorflow
