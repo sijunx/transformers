@@ -91,14 +91,16 @@ past_versions_testing = {
             "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.5.3",
         },
         # need another `nvidia:cuda` docker image, otherwise GPU not working
-        # "2.4": {
-        #     "tensorflow": "2.4.4",
-        #     "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.4.4",
-        # },
-        # "2.3": {
-        #     "tensorflow": "2.3.4",
-        #     "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.3.4",
-        # },
+        "2.4": {
+            "tensorflow": "2.4.4",
+            "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.4.4",
+            "base_docker": "nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04",
+        },
+        "2.3": {
+            "tensorflow": "2.3.4",
+            "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.3.4",
+            "base_docker": "nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04",
+        },
     },
 }
 
