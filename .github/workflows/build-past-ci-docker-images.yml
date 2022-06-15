@@ -4,7 +4,7 @@ on:
   push:
     branches:
       # - past-ci-docker-image*
-      - past-ci-none
+      - past-ci
 
 concurrency:
   group: docker-images-builds
