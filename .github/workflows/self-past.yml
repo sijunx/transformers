@@ -65,9 +65,7 @@ jobs:
         machine_type: [single-gpu]
     runs-on: ${{ format('{0}-{1}', matrix.machine_type, 'docker') }}
     container:
-      # image: huggingface/transformers-all-latest-torch-nightly-gpu
-      # ???
-      image: huggingface/transformers-pytorch-past-${{ inputs.version }}-gpu
+      image: huggingface/transformers-${{ inputs.framework }}-past-${{ inputs.version }}-gpu
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     needs: setup
     steps:
@@ -120,9 +118,7 @@ jobs:
         machine_type: [multi-gpu]
     runs-on: ${{ format('{0}-{1}', matrix.machine_type, 'docker') }}
     container:
-      # image: huggingface/transformers-all-latest-torch-nightly-gpu
-      # ???
-      image: huggingface/transformers-pytorch-past-${{ inputs.version }}-gpu
+      image: huggingface/transformers-${{ inputs.version }}-past-${{ inputs.version }}-gpu
       options: --gpus all --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     needs: setup
     steps:
