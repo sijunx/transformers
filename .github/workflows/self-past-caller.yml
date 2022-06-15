@@ -3,7 +3,7 @@ name: Self-hosted runner (past-caller)
 on:
   push:
     branches:
-      - past-ci
+      - past-ci-none
 
 jobs:
   run_past_ci_torch_19:

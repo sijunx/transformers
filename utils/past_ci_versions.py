@@ -3,7 +3,7 @@ import os
 
 
 past_versions_testing = {
-    "torch": {
+    "pytorch": {
         "1.10": {
             "torch": "1.10.2",
             "torchvision": "0.11.3",
@@ -72,7 +72,33 @@ past_versions_testing = {
         #     "install": "python3 -m pip install --no-cache-dir -U torch==1.3.1 torchvision==0.4.2 torchaudio==0.4.0 --extra-index-url https://download.pytorch.org/whl/cu100",
         # },
     },
+    # Should we include `tensorflow_probability`?
     "tensorflow": {
+        "2.8": {
+            "tensorflow": "2.8.2",
+            "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.8.2",
+        },
+        "2.7": {
+            "tensorflow": "2.7.3",
+            "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.7.3",
+        },
+        "2.6": {
+            "tensorflow": "2.6.5",
+            "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.6.5",
+        },
+        "2.5": {
+            "tensorflow": "2.5.3",
+            "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.5.3",
+        },
+        # need another `nvidia:cuda` docker image, otherwise GPU not working
+        # "2.4": {
+        #     "tensorflow": "2.4.4",
+        #     "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.4.4",
+        # },
+        # "2.3": {
+        #     "tensorflow": "2.3.4",
+        #     "install": "python3 -m pip install --no-cache-dir -U tensorflow==2.3.4",
+        # },
     },
 }
 
