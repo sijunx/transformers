@@ -224,6 +224,7 @@ conda install -c huggingface transformers
 ```
 
 要通过 conda 安装 Flax、PyTorch 或 TensorFlow 其中之一，请参阅它们各自安装页的说明。
+备注：
 
 ## 模型架构
 
