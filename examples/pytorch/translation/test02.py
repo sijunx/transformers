@@ -4,8 +4,8 @@ from transformers import (
   EncoderDecoderModel,
   AutoTokenizer
 )
-# PRETRAINED = "raynardj/wenyanwen-chinese-translate-to-ancient"
-PRETRAINED = "/Users/xusijun/Documents/MY_NLP_001/wenyanwen-chinese-translate-to-ancient"
+PRETRAINED = "raynardj/wenyanwen-chinese-translate-to-ancient"
+# PRETRAINED = "/Users/xusijun/Documents/MY_NLP_001/wenyanwen-chinese-translate-to-ancient"
 
 tokenizer = AutoTokenizer.from_pretrained(PRETRAINED)
 model = EncoderDecoderModel.from_pretrained(PRETRAINED)
